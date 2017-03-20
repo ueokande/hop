@@ -2,7 +2,7 @@
 
 scd() {
   if [ $# = 0 ]; then
-    cd
+    cat "$HOME"/.scdrc
   else
     dir=$(awk -F= '$1=="'"$1"'" { print $2 }' "$HOME"/.scdrc  | head -1)
     if [ -z "$dir" ]; then
