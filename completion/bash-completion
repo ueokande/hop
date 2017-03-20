@@ -1,0 +1,14 @@
+#!/bin/bash
+
+_scd() {
+  local cur entries
+
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  entries=$(awk -F=  '{print $1}' ~/.scdrc)
+  if [ "$COMP_CWORD" = 1 ]; then
+    COMPREPLY=( $(compgen -W "$entries" -- "${cur}") )
+    return
+  fi
+}
+
+complete -F _scd scd
