@@ -1,14 +1,14 @@
 #!/bin/bash
 
-_scd() {
+_hop() {
   local cur entries
 
   cur="${COMP_WORDS[COMP_CWORD]}"
-  entries=$(awk -F=  '{print $1}' ~/.scdrc)
+  entries=$(awk -F=  '{print $1}' ~/.hoprc)
   if [ "$COMP_CWORD" = 1 ]; then
     COMPREPLY=( $(compgen -W "$entries" -- "${cur}") )
     return
   fi
 }
 
-complete -F _scd scd
+complete -F _hop hop

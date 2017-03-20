@@ -1,6 +1,6 @@
 #!/bin/sh
 
-printf "" >"$HOME"/.scdrc
+printf "" >"$HOME"/.hoprc
 
 while test $# != 0; do
   if ! [ -d $1 ]; then
@@ -10,7 +10,7 @@ while test $# != 0; do
   fi
 
   for dir in $1/*; do
-    echo "$(basename "$dir")=$dir" >>"$HOME"/.scdrc
+    echo "$(basename "$dir")=$dir" >>"$HOME"/.hoprc
   done
   shift;
 done
